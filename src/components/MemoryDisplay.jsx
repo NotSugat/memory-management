@@ -12,7 +12,7 @@ function MemoryDisplay({ memoryStatus, technique }) {
 
   return (
     <div>
-      <h2>Memory Status</h2>
+      <h2 className="text-2xl font-semibold">Memory Status</h2>
 
       {technique === "fixedSizePartitioning" && status?.status && (
         <ul
@@ -23,11 +23,11 @@ function MemoryDisplay({ memoryStatus, technique }) {
             listStyle: "none",
             padding: 0,
             istStyleType: "none",
-            gap: "0.5rem",
           }}
+          className="bg-[#262730]  rounded-md"
         >
           {status?.status?.map((item, index) => (
-            <li key={index}>
+            <li key={index} className="p-4 text-xl font-semibold gap-2">
               {`P${index}:`}
               {item !== null ? item : "null"}
             </li>
@@ -44,9 +44,9 @@ function MemoryDisplay({ memoryStatus, technique }) {
             listStyle: "none",
             padding: 0,
             istStyleType: "none",
-            gap: "0.5rem",
           }}
           onClick={() => console.log(status)}
+          className="display"
         >
           {status?.status?.map((item, index) => (
             <li key={index}>
@@ -56,43 +56,6 @@ function MemoryDisplay({ memoryStatus, technique }) {
           ))}
         </ul>
       )}
-      <div>
-        <h3>Fixed Size/Unequal Partitions</h3>
-        {status.allocatedBlocks && (
-          <ul>
-            {status.allocatedBlocks.map((block, index) => (
-              <li key={index}>
-                Partition {index}:{" "}
-                {block !== null ? `Process ${block}` : "null"}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <div>
-        <h3>Dynamic Allocation</h3>
-        <div>
-          <h4>Allocated Blocks</h4>
-          <ul>
-            {status.allocatedBlocks &&
-              status.allocatedBlocks.map((block, index) => (
-                <li key={index}>
-                  Block {index}: Process {block.process}, Size {block.size},
-                  Start {block.start}
-                </li>
-              ))}
-          </ul>
-          <h4>Free Blocks</h4>
-          <ul>
-            {status.freeBlocks &&
-              status.freeBlocks.map((block, index) => (
-                <li key={index}>
-                  Block {index}: Size {block.size}, Start {block.start}
-                </li>
-              ))}
-          </ul>
-        </div>
-      </div>
       <div>
         <h3>Paging</h3>
         <div>

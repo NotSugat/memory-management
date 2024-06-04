@@ -35,8 +35,8 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Memory Management Simulator</h1>
+    <div className="space-y-6 mx-auto max-w-[80%] mt-32">
+      <h1 className="text-3xl font-semibold">Memory Management Simulator</h1>
       <ControlPanel
         memorySize={memorySize}
         setMemorySize={setMemorySize}

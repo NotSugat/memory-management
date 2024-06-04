@@ -22,21 +22,22 @@ function ControlPanel({
   };
 
   return (
-    <div>
-      <h2>Control Panel</h2>
-      <div>
+    <div className="space-y-4">
+      <h2 className="text-2xl font-semibold">Control Panel</h2>
+      <div className="textfield">
         <label>
           Memory Size:
           <input
             type="number"
             value={memorySize}
             onChange={(e) => setMemorySize(Number(e.target.value))}
+            className=""
           />
         </label>
       </div>
 
       {technique === "fixedSizePartitioning" && (
-        <div>
+        <div className="textfield">
           <label>
             Partition Size:
             <input
@@ -63,7 +64,7 @@ function ControlPanel({
       {/* )} */}
 
       {technique === "un" && (
-        <div>
+        <div className="textfield">
           <label>
             Partition Size:
             <input
@@ -74,7 +75,7 @@ function ControlPanel({
           </label>
         </div>
       )}
-      <div>
+      <div className="textfield">
         <label>
           Page Size:
           <input
@@ -84,12 +85,13 @@ function ControlPanel({
           />
         </label>
       </div>
-      <div>
+      <div className="textfield">
         <label>
           Allocation Strategy:
           <select
             value={strategy}
             onChange={(e) => setStrategy(e.target.value)}
+            className="p-4 text-white border border-[#1e232b] rounded-md text-[#eee] focus:outline-none focus:border-[#1e232b] focus:ring-1 focus:ring-[#1e232b]  bg-[#262730]"
           >
             <option value="firstFit">First Fit</option>
             <option value="bestFit">Best Fit</option>
@@ -97,7 +99,7 @@ function ControlPanel({
           </select>
         </label>
       </div>
-      <div>
+      <div className="textfield">
         <label>
           Memory Management Technique:
           <select
@@ -106,6 +108,7 @@ function ControlPanel({
               setTechnique(e.target.value);
               setMessageStatus({});
             }}
+            className="p-4 text-white border border-[#1e232b] rounded-md text-[#eee] focus:outline-none focus:border-[#1e232b] focus:ring-1 focus:ring-[#1e232b]  bg-[#262730]"
           >
             <option value="fixedSizePartitioning">
               Fixed-sized Partitioning
@@ -119,7 +122,12 @@ function ControlPanel({
           </select>
         </label>
       </div>
-      <button onClick={handleSimulate}>Simulate</button>
+      <button
+        onClick={handleSimulate}
+        className="text-lg px-4 py-2 bg-[#464750] rounded-md"
+      >
+        Simulate
+      </button>
     </div>
   );
 }

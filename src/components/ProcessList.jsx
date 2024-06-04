@@ -15,17 +15,25 @@ function ProcessList({ processes, onAddProcess, onRemoveProcess }) {
   };
 
   return (
-    <div>
-      <h2>Processes</h2>
+    <div className="space-y-4">
+      <h2 className="text-2xl font-semibold  ">Processes</h2>
       <ul>
         {processes.map((process) => (
-          <li key={process.id}>
-            Process {process.id}: {process.size} KB
-            <button onClick={() => onRemoveProcess(process.id)}>Remove</button>
+          <li key={process.id} className="flex items-center gap-4 text-lg">
+            <p className="flex gap-4 ">
+              <span className="font-semibold">PID {process.id}:</span>
+              <span className="">{process.size} KB</span>
+            </p>
+            <button
+              onClick={() => onRemoveProcess(process.id)}
+              className="text-lg px-4 py-2 bg-[#464750] rounded-md"
+            >
+              Remove
+            </button>
           </li>
         ))}
       </ul>
-      <div>
+      <div className="textfield flex items-center gap-4">
         <label>
           Process Size:
           <input
@@ -34,7 +42,12 @@ function ProcessList({ processes, onAddProcess, onRemoveProcess }) {
             onChange={(e) => setProcessSize(Number(e.target.value))}
           />
         </label>
-        <button onClick={handleAdd}>Add Process</button>
+        <button
+          onClick={handleAdd}
+          className="text-lg px-4 py-2 bg-[#464750] rounded-md"
+        >
+          Add Process
+        </button>
       </div>
     </div>
   );

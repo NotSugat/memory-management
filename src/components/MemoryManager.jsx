@@ -53,15 +53,7 @@ function MemoryManager({
     updateMemoryStatus({ status: memoryStatus });
   }, [memorySize, pageSize, strategy, technique, processes]);
 
-  return (
-    <button
-      onClick={() =>
-        console.log(memorySize, processes, strategy, technique, mem)
-      }
-    >
-      Hello
-    </button>
-  );
+  return null;
 }
 
 export default MemoryManager;
